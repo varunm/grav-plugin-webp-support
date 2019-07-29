@@ -1,0 +1,31 @@
+name: Webp Support
+version: 0.1.0
+description: Serves webp images if available and supported by browser
+icon: plug
+author:
+  name: Varun Murali
+  email: varun.murali93@gmail.com
+homepage: https://github.com/varunm/grav-plugin-webp-support
+demo: http://demo.yoursite.com
+keywords: grav, plugin, etc
+bugs: https://github.com/varunm/grav-plugin-webp-support/issues
+docs: https://github.com/varunm/grav-plugin-webp-support/blob/develop/README.md
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    text_var:
+      type: text
+      label: PLUGIN_WEBP_SUPPORT.TEXT_VARIABLE
+      help: PLUGIN_WEBP_SUPPORT.TEXT_VARIABLE_HELP
