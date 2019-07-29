@@ -49,4 +49,5 @@ Place image files within the page folder. If the browser is Safari, `.webp` file
 
 - [ ] Make code less shitty
 - [ ] Support more shit
+- [ ] Make config less shit
 
