@@ -40,7 +40,7 @@ class WebpSupportPlugin extends Plugin
 
         // Enable the main event we are interested in
         $this->enable([
-            'onPageContentRaw' => ['onPageContentRaw', 0]
+            'onPageInitialized' => ['onPageInitialized', 0]
         ]);
     }
 
@@ -50,14 +50,17 @@ class WebpSupportPlugin extends Plugin
      *
      * @param Event $e
      */
-    public function onPageContentRaw(Event $e)
-    {
+    public function onPageInitialized(Event $e) {
         $browser = new Browser;
-        $content = $e['page']->getRawContent();
+        $content = $e['page']->value('content');
         if ($browser->getBrowser() == "safari") {
-            dump("bollocks");
-            $content = str_replace(".webp", ".jpeg", $content);
+            $out = preg_replace_callback(
+                "/([a-z0-9]*).(webp)/i",
+                function($m) {
+                    return $m[1].".jpeg";
+                },
+                $content);
+            $e['page']->rawMarkdown($out);
         }
-        $e['page']->setRawContent($content);
     }
 }
