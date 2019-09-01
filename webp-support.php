@@ -57,7 +57,7 @@ class WebpSupportPlugin extends Plugin
             $out = preg_replace_callback(
                 "/([a-z0-9]*).(webp)/i",
                 function($m) {
-                    return $m[1].".jpeg";
+                    return $m[1].".jpg";
                 },
                 $content);
             $e['page']->rawMarkdown($out);
