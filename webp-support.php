@@ -93,6 +93,7 @@ class WebpSupportPlugin extends Plugin
                 $sources = [$source, $image];
                 $picture->appendChild($sources);
                 $image->replace($picture);
+                $image->replace($picture):
             }
             return $document->html();
         }
